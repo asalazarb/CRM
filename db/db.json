@@ -1,0 +1,35 @@
+{
+    "companies": [
+        {
+            "id": "1",
+            "name": "Konrad",
+            "address": "Tres Rios, Cartago, Costa Rica",
+            "phone": "222222"
+        },
+        {
+            "id": "34",
+            "name": "Apple",
+            "address": "Tres Rios, Cartago, Costa Rica",
+            "phone": "3040234"
+        }
+    ],
+
+    "contacts": [
+        {
+            "id": "1",
+            "name": "Juanqui Loco",
+            "email": "juanqui@gmail.com",
+            "phone": "800666",
+            "position": "C3PO",
+            "company": "1"
+        },
+        {
+            "id": "45",
+            "name": "Andres Salazar",
+            "email": "andres@gmail.com",
+            "phone": "800666",
+            "position": "C3PO",
+            "company": "34"
+        }
+    ]
+  }
