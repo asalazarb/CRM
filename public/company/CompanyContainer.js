@@ -1,23 +1,37 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import CompanyList from './CompanyList'
+import { fetchCompanies } from '../redux/actions'
 
 
 class CompanyContainer extends React.Component {
-    state = {
-      companies: []
-    }
 
     componentDidMount() {
-        fetch("http://localhost:3000/companies")
-            .then(response => response.json())
-            .then(data => this.setState({ companies: data }));
+      fetch("http://localhost:3000/companies")
+          .then(response => response.json())
+          .then(data => this.props.fetchCompanies(data ));
     }
 
+
+
     render() {
-        return (<CompanyList companies={this.state.companies} />)
+        console.log(this.props.companies)
+        return (<CompanyList companies={this.props.companies} />)
       }
 }  
   
-  export default CompanyContainer;
+function mapStateToProps(state) {
+  return {
+    companies: state.company.companies
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchCompanies: data => dispatch(fetchCompanies(data)) 
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyContainer)
 
 
