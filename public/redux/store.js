@@ -2,8 +2,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { createLogger } from 'redux-logger'
 
-import companyReducer from './companyReducer'
-import contactReducer from './contactReducer'
+import companyReducer from './reducers/companyReducer'
+import contactReducer from './reducers/contactReducer'
 
 
 const logger = createLogger({

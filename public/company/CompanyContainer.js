@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CompanyList from './CompanyList'
-import { fetchCompanies } from '../redux/actions'
+import { fetchCompanies, deleteCompany } from '../redux/actions'
 
 
 class CompanyContainer extends React.Component {
@@ -9,14 +9,13 @@ class CompanyContainer extends React.Component {
     componentDidMount() {
       fetch("http://localhost:3000/companies")
           .then(response => response.json())
-          .then(data => this.props.fetchCompanies(data ));
+          .then(data => this.props.fetchCompanies(data ))
     }
 
 
 
     render() {
-        console.log(this.props.companies)
-        return (<CompanyList companies={this.props.companies} />)
+        return (<CompanyList companies={this.props.companies} deleteCompany={this.props.deleteCompany} />)
       }
 }  
   
@@ -28,7 +27,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCompanies: data => dispatch(fetchCompanies(data)) 
+    fetchCompanies: data => dispatch(fetchCompanies(data)), 
+    deleteCompany: id => dispatch(deleteCompany(id))
   }
 }
 

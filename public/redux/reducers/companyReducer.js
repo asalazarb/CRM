@@ -11,6 +11,14 @@ const companies = (state = DEFAULT_STATE, action) => {
           ...state,
         companies: action.data 
       }
+
+    case 'DELETE_COMPANY':
+      
+    return{
+        
+      companies: state.companies.filter(company => !action.id.includes(company.id))
+      
+    }
       
     default:
       return state
