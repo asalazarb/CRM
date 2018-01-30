@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CompanyList from './CompanyList'
-import { fetchCompanies, deleteCompany, createCompany } from '../redux/actions'
+import { fetchCompanies, deleteCompany, createCompany, editCompany } from '../redux/actions'
 
 
 class CompanyContainer extends React.Component {
@@ -15,7 +15,7 @@ class CompanyContainer extends React.Component {
 
 
     render() {
-        return (<CompanyList companies={this.props.companies} deleteCompany={this.props.deleteCompany} createCompany={this.props.createCompany} />)
+        return (<CompanyList companies={this.props.companies} editCompany={this.props.editCompany} deleteCompany={this.props.deleteCompany} createCompany={this.props.createCompany} />)
       }
 }  
   
@@ -29,7 +29,8 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchCompanies: data => dispatch(fetchCompanies(data)), 
     deleteCompany: id => dispatch(deleteCompany(id)),
-    createCompany: data => dispatch(createCompany(data))
+    createCompany: data => dispatch(createCompany(data)),
+    editCompany: data => dispatch(editCompany(data))
   }
 }
 

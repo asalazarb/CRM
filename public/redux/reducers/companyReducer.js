@@ -1,3 +1,4 @@
+import uuid from 'uuid/v1'
 
 const DEFAULT_STATE = {
   companies: []
@@ -21,13 +22,24 @@ const companies = (state = DEFAULT_STATE, action) => {
       return {
         ...state,
         companies: [...state.companies, {
-          id: action.data.id,
+          id: uuid(),
           name: action.data.name,
           address: action.data.address,
           phone: action.data.phone
         }],
       }
-      
+    case 'EDIT_COMPANY':      
+      return{        
+        companies: state.companies.filter(function(company){
+          if(company.id === action.data.id){
+            return action
+          }
+          else{
+            return company
+          }
+        })
+      }
+
     default:
       return state
   }

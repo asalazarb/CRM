@@ -2,6 +2,9 @@ const FETCH_COMPANIES = 'FETCH_COMPANIES'
 const FETCH_CONTACTS = 'FETCH_CONTACTS'
 const DELETE_COMPANY = 'DELETE_COMPANY'
 const CREATE_COMPANY = 'CREATE_COMPANY'
+const EDIT_COMPANY = 'EDIT_COMPANY'
+
+
 
 
 export const fetchCompanies = data => {
@@ -28,6 +31,13 @@ export const deleteCompany = id => {
 export const createCompany = data => {
   return {
     type: CREATE_COMPANY,
+    data
+  }
+}
+
+export const editCompany = data => {
+  return {
+    type: EDIT_COMPANY,
     data
   }
 }
