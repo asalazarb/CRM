@@ -15,7 +15,7 @@ class CompanyContainer extends React.Component {
 
 
     render() {
-        return (<CompanyList companies={this.props.companies} editCompany={this.props.editCompany} deleteCompany={this.props.deleteCompany} createCompany={this.props.createCompany} />)
+        return (<div> <h1>Companies</h1> <CompanyList companies={this.props.companies} editCompany={this.props.editCompany} deleteCompany={this.props.deleteCompany} createCompany={this.props.createCompany} /> </div>)
       }
 }  
   

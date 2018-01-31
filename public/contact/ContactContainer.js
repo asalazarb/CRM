@@ -14,7 +14,7 @@ class ContactContainer extends React.Component {
     }
 
     render() {
-        return (<CompanyList contacts={this.props.contacts} />)
+        return (<div><h1>Contacts</h1><CompanyList contacts={this.props.contacts} /> </div>)
       }
 }  
   
