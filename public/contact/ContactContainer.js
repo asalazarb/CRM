@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CompanyList from './ContactList'
-import { fetchContacts } from '../redux/actions'
-
+import { fetchContacts, deleteContact } from '../redux/actions'
 
 
 class ContactContainer extends React.Component {
@@ -14,7 +13,7 @@ class ContactContainer extends React.Component {
     }
 
     render() {
-        return (<div><h1>Contacts</h1><CompanyList contacts={this.props.contacts} /> </div>)
+        return (<div><h1>Contacts</h1><CompanyList contacts={this.props.contacts} deleteContact={this.props.deleteContact} /> </div>)
       }
 }  
   
@@ -26,7 +25,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchContacts: data => dispatch(fetchContacts(data)) 
+    fetchContacts: data => dispatch(fetchContacts(data)), 
+    deleteContact: id => dispatch(deleteContact(id))
   }
 }
 

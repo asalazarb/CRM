@@ -72,6 +72,7 @@
             "address": "Tres Rios, Cartago, Costa Rica",
             "phone": "3040234"
         }
+        
     ],
 
     "contacts": [
@@ -81,7 +82,8 @@
             "email": "juanqui@gmail.com",
             "phone": "800666",
             "position": "C3PO",
-            "company": "1"
+            "companyID": "1",
+            "company": "Konrad"
         },
         {
             "id": "45",
@@ -89,7 +91,8 @@
             "email": "andres@gmail.com",
             "phone": "800666",
             "position": "C3PO",
-            "company": "34"
+            "companyID": "34",
+            "company": "Apple"
         }
     ]
   }

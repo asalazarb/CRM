@@ -12,8 +12,6 @@ class CompanyContainer extends React.Component {
           .then(data => this.props.fetchCompanies(data ))
     }
 
-
-
     render() {
         return (<div> <h1>Companies</h1> <CompanyList companies={this.props.companies} editCompany={this.props.editCompany} deleteCompany={this.props.deleteCompany} createCompany={this.props.createCompany} /> </div>)
       }

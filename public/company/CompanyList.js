@@ -3,10 +3,6 @@ import {array} from 'prop-types'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
-//import CompanyItem from './CompanyItem'
-
-
-
 
 class CompanyList extends React.Component {
 

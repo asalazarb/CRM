@@ -10,6 +10,11 @@ const DEFAULT_STATE = {
             ...state,
           contacts: action.data 
         }
+      
+        case 'DELETE_CONTACT':      
+        return{        
+          contacts: state.contacts.filter(contact => !action.id.includes(contact.id))
+        }
         
       default:
         return state
