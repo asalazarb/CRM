@@ -1,11 +1,13 @@
 import React from 'react'
 import {Switch, Route, Link} from 'react-router-dom'
-import { Layout, Menu, BackTop, Footer } from 'antd'
+import { Layout, Menu, BackTop } from 'antd'
 import 'antd/dist/antd.css'
 import CompanyContainer from './company/CompanyContainer'
 import ContactContainer from './contact/ContactContainer'
+import Contact from './contact/Contact'
 
 
+const { Header, Content, Footer } = Layout;
 
 
 class App extends React.Component {
@@ -15,6 +17,7 @@ class App extends React.Component {
         
         <Layout className="layout">
           <BackTop />
+          
           <div className="logo" />
           <Menu
             theme="dark"
@@ -25,6 +28,7 @@ class App extends React.Component {
             <Menu.Item><Link to="/companies">CRM</Link></Menu.Item>
             <Menu.Item><Link to="/companies">Companies</Link></Menu.Item>
             <Menu.Item><Link to="/contacts">Contacts</Link></Menu.Item>
+            <Menu.Item><Link to="/contacts">Projects</Link></Menu.Item>
           </Menu>
 
         </Layout>
@@ -33,10 +37,11 @@ class App extends React.Component {
             <Route exact path='/' component={CompanyContainer} />
             <Route path='/contacts' component={ContactContainer} />
             <Route path='/companies' component={CompanyContainer} />
+            <Route path='/contact' component={Contact} />
           </Switch>
         </div>
         <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2016 Created by Ant UED
+          CRM ©2018 Created by ASB
         </Footer>
         
       </div>

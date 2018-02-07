@@ -17,11 +17,26 @@ class CompanyList extends React.Component {
     onAfterDeleteRow = (rowKeys) =>{
       this.props.deleteCompany(rowKeys)
     }
+    
     onAfterInsertRow = (rowFields) =>{
-      this.props.createCompany(rowFields)
+      let contains = false
+      this.props.companies.forEach(item => {
+        if (item.name.toLowerCase() === rowFields.name.toLowerCase()) {
+          contains = true
+          return
+        }
+      })
+      if(contains){
+        alert('Company name is unique')
+      }
+      else{
+        this.props.createCompany(rowFields)
+        alert('Company created')
+      }
     }
     onBeforeSaveCell = (row, cellName, cellValue) => {
       if(cellValue.length != 0){
+
         return true
       }
       return false
@@ -48,7 +63,7 @@ class CompanyList extends React.Component {
     options = {
       mode: 'click',
       afterDeleteRow: this.onAfterDeleteRow,
-      afterInsertRow: this.onAfterInsertRow,
+      onAddRow: this.onAfterInsertRow,
       beforeSaveCell: this.onBeforeSaveCell,
       afterSaveCell: this.onAfterSaveCell  
     }
@@ -58,8 +73,8 @@ class CompanyList extends React.Component {
     render(){
         return(
           <BootstrapTable data={this.props.companies} cellEdit={this.options} insertRow deleteRow exportCSV selectRow={{mode: 'checkbox'}} options={this.options} pagination hover>
-            <TableHeaderColumn dataField='id' isKey hidden hiddenOnInsert autoValue required={false} filter={{ type: 'TextFilter', delay: 100 }}>ID</TableHeaderColumn>
-            <TableHeaderColumn dataField='name' editable filter={{ type: 'TextFilter', delay: 100 }} dataSort>Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='id' hidden hiddenOnInsert autoValue required={false} filter={{ type: 'TextFilter', delay: 100 }}>ID</TableHeaderColumn>
+            <TableHeaderColumn dataField='name' isKey editable filter={{ type: 'TextFilter', delay: 100 }} dataSort>Name</TableHeaderColumn>
             <TableHeaderColumn dataField='address' filter={{ type: 'TextFilter', delay: 100 }}>Address</TableHeaderColumn>
             <TableHeaderColumn dataField='phone' filter={{ type: 'TextFilter', delay: 100 }}>Phone</TableHeaderColumn>
           </BootstrapTable>

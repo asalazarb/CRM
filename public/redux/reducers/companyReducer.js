@@ -13,9 +13,14 @@ const companies = (state = DEFAULT_STATE, action) => {
         companies: action.data 
       }
 
+    case 'FETCH_COMPANY_NAMES':
+      return {
+        companies: action.data.map(company => company.name) 
+      }
+
     case 'DELETE_COMPANY':      
       return{        
-        companies: state.companies.filter(company => !action.id.includes(company.id))
+        companies: state.companies.filter(company => !action.id.includes(company.name))
       }
 
     case 'CREATE_COMPANY':
